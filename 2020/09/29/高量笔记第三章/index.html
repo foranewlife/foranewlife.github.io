@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"foranewlife.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一章：量子态的描述1.2密度矩阵1.2.1密度算符与密度矩阵投影算符:  P_n &#x3D; |n\rangle \langle n|密度算符：  \rho(t)&#x3D;|\psi(t)\rangle\langle\psi(t)|采取F表象时与量子态$|\psi\rangle$对应的密度算符可以表现为矩阵形式：  \rho_{nn&#39;}(t) &#x3D; \langle n|\rho(t)|n&#39;\rangle&#x3D;C_n(">
+  <meta name="description" content="第三章：二次量子化3.1 全同粒子系的量子态的描述3.1.1粒子数表象Fermi的波函数:  \begin{aligned} \psi_{\alpha \beta \gamma \cdots}^{A}\left(q_{1}, \cdots, q_{N}\right) &amp;&#x3D;\frac{1}{\sqrt{N !}}\left|\begin{array}{c} \varphi_{\alpha}\left">
 <meta property="og:type" content="article">
-<meta property="og:title" content="量子态的描述">
-<meta property="og:url" content="https://foranewlife.github.io/2020/09/28/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="第三章：二次量子化">
+<meta property="og:url" content="https://foranewlife.github.io/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Cys&#39;blog">
-<meta property="og:description" content="第一章：量子态的描述1.2密度矩阵1.2.1密度算符与密度矩阵投影算符:  P_n &#x3D; |n\rangle \langle n|密度算符：  \rho(t)&#x3D;|\psi(t)\rangle\langle\psi(t)|采取F表象时与量子态$|\psi\rangle$对应的密度算符可以表现为矩阵形式：  \rho_{nn&#39;}(t) &#x3D; \langle n|\rho(t)|n&#39;\rangle&#x3D;C_n(">
+<meta property="og:description" content="第三章：二次量子化3.1 全同粒子系的量子态的描述3.1.1粒子数表象Fermi的波函数:  \begin{aligned} \psi_{\alpha \beta \gamma \cdots}^{A}\left(q_{1}, \cdots, q_{N}\right) &amp;&#x3D;\frac{1}{\sqrt{N !}}\left|\begin{array}{c} \varphi_{\alpha}\left">
 <meta property="og:locale" content="ch">
-<meta property="article:published_time" content="2020-09-28T01:48:56.805Z">
-<meta property="article:modified_time" content="2020-09-28T03:01:10.932Z">
+<meta property="article:published_time" content="2020-09-29T00:43:56.854Z">
+<meta property="article:modified_time" content="2020-09-29T14:00:09.254Z">
 <meta property="article:author" content="Cys">
 <meta property="article:tag" content="AQM">
+<meta property="article:tag" content="二次量子化">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://foranewlife.github.io/2020/09/28/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="https://foranewlife.github.io/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>量子态的描述 | Cys'blog</title>
+  <title>第三章：二次量子化 | Cys'blog</title>
   
 
 
@@ -155,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ch">
-    <link itemprop="mainEntityOfPage" href="https://foranewlife.github.io/2020/09/28/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://foranewlife.github.io/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          量子态的描述
+          第三章：二次量子化
         </h1>
 
         <div class="post-meta">
@@ -179,7 +180,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-09-28 09:48:56 / Modified: 11:01:10" itemprop="dateCreated datePublished" datetime="2020-09-28T09:48:56+08:00">2020-09-28</time>
+              <time title="Created: 2020-09-29 08:43:56 / Modified: 22:00:09" itemprop="dateCreated datePublished" datetime="2020-09-29T08:43:56+08:00">2020-09-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
 
           
@@ -193,36 +203,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第一章：量子态的描述"><a href="#第一章：量子态的描述" class="headerlink" title="第一章：量子态的描述"></a>第一章：量子态的描述</h1><h2 id="1-2密度矩阵"><a href="#1-2密度矩阵" class="headerlink" title="1.2密度矩阵"></a>1.2密度矩阵</h2><h3 id="1-2-1密度算符与密度矩阵"><a href="#1-2-1密度算符与密度矩阵" class="headerlink" title="1.2.1密度算符与密度矩阵"></a>1.2.1密度算符与密度矩阵</h3><p><font color = "red" face="黑体">投影算符</font>:</p>
-<script type="math/tex; mode=display">
-P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度算符</font>：</p>
-<script type="math/tex; mode=display">
-\rho(t)=|\psi(t)\rangle\langle\psi(t)|</script><p>采取F表象时与量子态$|\psi\rangle$对应的密度算符可以表现为<font color = "red" face="黑体">矩阵形式</font>：</p>
-<script type="math/tex; mode=display">
-\rho_{nn'}(t) = \langle n|\rho(t)|n'\rangle=C_n(t)C_{n'}^*(t)</script><p>另一种表达形式</p>
+        <h1 id="第三章：二次量子化"><a href="#第三章：二次量子化" class="headerlink" title="第三章：二次量子化"></a>第三章：二次量子化</h1><h2 id="3-1-全同粒子系的量子态的描述"><a href="#3-1-全同粒子系的量子态的描述" class="headerlink" title="3.1 全同粒子系的量子态的描述"></a>3.1 全同粒子系的量子态的描述</h2><h3 id="3-1-1粒子数表象"><a href="#3-1-1粒子数表象" class="headerlink" title="3.1.1粒子数表象"></a>3.1.1粒子数表象</h3><p><font color = "red" face="黑体">Fermi的波函数</font>:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-\rho &=|\psi(t)\rangle\langle\psi(t)|=\sum_{nn^{\prime}}| n\rangle\langle n | \psi(t)\rangle\langle\psi(t) | n^{\prime}  \rangle\langle n^{\prime}  | \\
-&=\sum_{nn^{\prime}} C_{n}(t) C_{n}^{*}(t)|n\rangle\langle n^{\prime}|=\sum_{nn^{\prime}} \rho_{nn^{\prime}}(t)  | n\rangle\langle n^{\prime}  |
-\end{aligned}</script><p><font color = "red" face="黑体">力学量的密度矩阵计算方法：</font></p>
+\psi_{\alpha \beta \gamma \cdots}^{A}\left(q_{1}, \cdots, q_{N}\right) &=\frac{1}{\sqrt{N !}}\left|\begin{array}{c}
+\varphi_{\alpha}\left(q_{1}\right)& \cdots& \varphi_{\alpha}\left(q_{N}\right) \\
+\varphi_{\beta}\left(q_{1}\right) &\cdots &\varphi_{\beta}\left(q_{N}\right) \\
+\varphi_{\gamma}\left(q_{1}\right)&\cdots &\varphi_{\gamma}\left(q_{N}\right) \\
+\vdots & &\vdots 
+\end{array}\right| \\
+&=\frac{1}{\sqrt{N !}} \sum_{P} \delta_{P} P\left[\varphi_{\alpha}\left(q_{1}\right) \varphi_{\beta}\left(q_{2}\right) \varphi_{\gamma}\left(q_{3}\right) \cdots\right]
+\end{aligned}</script><p><font color = "red" face="黑体">Bose子的波函数</font>:</p>
 <script type="math/tex; mode=display">
-\langle G\rangle=tr(\rho G)=tr(G\rho)</script><p><font color = "red" face="黑体">密度算符的演化：</font></p>
+\psi_{n_{1} \cdots n_{N}}^{S}\left(q_{1}, \cdots, q_{N}\right)=\sqrt{\frac{\prod_{i} n_{i} !}{N !}} \sum_{P} P[\underbrace{\varphi_{k_{1}}\left(q_{1}\right) \cdots }_{n_{1}}\cdots \underbrace{\cdots \varphi_{k_{N}}\left(q_{N}\right)}_{n_N} ]</script><p><font color = "red" face="黑体">Fock表象</font>:<br>也即粒子填布数表象(occupation particle number representation)</p>
 <script type="math/tex; mode=display">
-\frac{d}{dt}\rho(t)=\frac{1}{i\hbar}[H,\rho(t)]</script><p>对比Heisenberg表象下 力学量的演化：</p>
-<script type="math/tex; mode=display">
-\frac{d}{dt}F=\frac{1}{i\hbar}[F,H]+\frac{\partial F}{\partial t}</script><p>在能量表征下</p>
-<script type="math/tex; mode=display">
-\begin{array}{c}
-\rho_{n n^{\prime}}(t)=\rho_{nn^{\prime}}(0) \mathrm{e}^{-\mathrm{i\omega }_{nn^{\prime}}} \\
-\omega_{n n^{\prime}}=\left(E_{n}-E_{n^{\prime}}\right) / \hbar
-\end{array}</script><p>即非对角元$\rho_{nn’}(t)(n\ne n’)$以角频率$\omega_{nn’}$震荡，而对角元不随时间变化</p>
-<h3 id="1-2-2混合态的密度矩阵"><a href="#1-2-2混合态的密度矩阵" class="headerlink" title="1.2.2混合态的密度矩阵"></a>1.2.2混合态的密度矩阵</h3><p><font color="red" face="黑体">混合态密度算符：</font></p>
-<script type="math/tex; mode=display">
-\rho = \sum_{k}p_k|\psi_k\rangle\langle\psi_k| = \sum_k p_k\rho_k</script><p><font color="red" face="黑体">混合态密度矩阵：</font></p>
-<script type="math/tex; mode=display">
-\rho_{nn\prime} = \sum_k p_k C_n^k C_{n\prime}^{k*}</script><p><font color="red" face="黑体">布居：</font>$\rho_{nn}$称为混合态下量子态$|n\rangle$的布居（population）</p>
-<p><font color="red" face="黑体">相干：</font>非对角元$\rho_{nn’}\ne0$称为相干（coherence）<br>$\rho_{nn’}=0$则$|n\rangle$和$|n’\rangle$不相干</p>
-<h3 id="1-2-3-复合体系的子体系，约化密度矩阵"><a href="#1-2-3-复合体系的子体系，约化密度矩阵" class="headerlink" title="1.2.3 复合体系的子体系，约化密度矩阵"></a>1.2.3 复合体系的子体系，约化密度矩阵</h3>
+|n_1n_2\cdots n_N \rangle</script><h3 id="3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><a href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述" class="headerlink" title="3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述"></a>3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</h3>
     </div>
 
     
@@ -232,6 +227,7 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/AQM/" rel="tag"># AQM</a>
+              <a href="/tags/%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/" rel="tag"># 二次量子化</a>
           </div>
 
         
@@ -240,8 +236,8 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/16/my-first-blog/" rel="prev" title="my first blog">
-      <i class="fa fa-chevron-left"></i> my first blog
+    <a href="/2020/09/28/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%80%E7%AB%A0/" rel="prev" title="第一章量子态的描述">
+      <i class="fa fa-chevron-left"></i> 第一章量子态的描述
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -302,7 +298,7 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章：量子态的描述"><span class="nav-number">1.</span> <span class="nav-text">第一章：量子态的描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2密度矩阵"><span class="nav-number">1.1.</span> <span class="nav-text">1.2密度矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1密度算符与密度矩阵"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.2.1密度算符与密度矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2混合态的密度矩阵"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2.2混合态的密度矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-复合体系的子体系，约化密度矩阵"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.2.3 复合体系的子体系，约化密度矩阵</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章：二次量子化"><span class="nav-number">1.</span> <span class="nav-text">第三章：二次量子化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-全同粒子系的量子态的描述"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 全同粒子系的量子态的描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1粒子数表象"><span class="nav-number">1.1.1.</span> <span class="nav-text">3.1.1粒子数表象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><span class="nav-number">1.1.2.</span> <span class="nav-text">3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -315,16 +311,32 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/foranewlife" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;foranewlife" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:cys@calypso.cn" title="E-Mail → mailto:cys@calypso.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
