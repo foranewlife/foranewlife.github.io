@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>OF-DFT笔记</title>
+      <link href="/2020/10/06/OF-DFT%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/10/06/OF-DFT%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.zhihu.com/question/29462902" target="_blank" rel="noopener">理解Hartree-Fork</a></p><h1 id="Hartree-Forks近似"><a href="#Hartree-Forks近似" class="headerlink" title="Hartree-Forks近似"></a>Hartree-Forks近似</h1><script type="math/tex; mode=display">E_{\mathrm{HF}}=\sum_{i=1}^{N} H_{i}+\frac{1}{2}\sum_{i, j=1}^{N}\left( J_{ij}-K_{ij}\right) \tag{1.1}</script><p>其中</p><script type="math/tex; mode=display">\quad H_{i}=\int \psi_{i}^{*}(\mathbf{x})\left[-\frac{1}{2} \nabla^{2}+v(\mathbf{x})\right] \psi_{i}(\mathbf{x}) d \mathbf{x}</script><p>Coulomb integrals:</p><script type="math/tex; mode=display">J_{i j}=\iint \psi_{i}\left(\mathbf{x}_{1}\right) \psi_{i}^{*}\left(\mathbf{x}_{1}\right) \frac{1}{r_{12}} \psi_{j}^{*}\left(\mathbf{x}_{2}\right) \psi_{j}\left(\mathbf{x}_{2}\right) d \mathbf{x}_{1} d \mathbf{x}_{2}</script><p>Exchange integrals:</p><script type="math/tex; mode=display">K_{i j}=\iint \psi_{i}^{*}\left(\mathbf{x}_{1}\right) \psi_{j}\left(\mathbf{x}_{1}\right) \frac{1}{r_{12}} \psi_{i}\left(\mathbf{x}_{2}\right) \psi_{j}^{*}\left(\mathbf{x}_{2}\right) d \mathbf{x}_{1} d \mathbf{x}_{2}</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OF-DFT </tag>
+            
+            <tag> Hartree-Fork </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第三章：二次量子化</title>
       <link href="/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/"/>
       <url>/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="第三章：二次量子化"><a href="#第三章：二次量子化" class="headerlink" title="第三章：二次量子化"></a>第三章：二次量子化</h1><h2 id="3-1-全同粒子系的量子态的描述"><a href="#3-1-全同粒子系的量子态的描述" class="headerlink" title="3.1 全同粒子系的量子态的描述"></a>3.1 全同粒子系的量子态的描述</h2><h3 id="3-1-1粒子数表象"><a href="#3-1-1粒子数表象" class="headerlink" title="3.1.1粒子数表象"></a>3.1.1粒子数表象</h3><p><font color = "red" face="黑体">Fermi的波函数</font>:</p><script type="math/tex; mode=display">\begin{aligned}\psi_{\alpha \beta \gamma \cdots}^{A}\left(q_{1}, \cdots, q_{N}\right) &=\frac{1}{\sqrt{N !}}\left|\begin{array}{c}\varphi_{\alpha}\left(q_{1}\right)& \cdots& \varphi_{\alpha}\left(q_{N}\right) \\\varphi_{\beta}\left(q_{1}\right) &\cdots &\varphi_{\beta}\left(q_{N}\right) \\\varphi_{\gamma}\left(q_{1}\right)&\cdots &\varphi_{\gamma}\left(q_{N}\right) \\\vdots & &\vdots \end{array}\right| \\&=\frac{1}{\sqrt{N !}} \sum_{P} \delta_{P} P\left[\varphi_{\alpha}\left(q_{1}\right) \varphi_{\beta}\left(q_{2}\right) \varphi_{\gamma}\left(q_{3}\right) \cdots\right]\end{aligned}</script><p><font color = "red" face="黑体">Bose子的波函数</font>:</p><script type="math/tex; mode=display">\psi_{n_{1} \cdots n_{N}}^{S}\left(q_{1}, \cdots, q_{N}\right)=\sqrt{\frac{\prod_{i} n_{i} !}{N !}} \sum_{P} P[\underbrace{\varphi_{k_{1}}\left(q_{1}\right) \cdots }_{n_{1}}\cdots \underbrace{\cdots \varphi_{k_{N}}\left(q_{N}\right)}_{n_N} ]</script><p><font color = "red" face="黑体">Fock表象</font>:<br>也即粒子填布数表象(occupation particle number representation)</p><script type="math/tex; mode=display">|n_1n_2\cdots n_N \rangle</script><h3 id="3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><a href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述" class="headerlink" title="3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述"></a>3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</h3>]]></content>
+        <content type="html"><![CDATA[<h1 id="第三章：二次量子化"><a href="#第三章：二次量子化" class="headerlink" title="第三章：二次量子化"></a>第三章：二次量子化</h1><h2 id="3-1-全同粒子系的量子态的描述"><a href="#3-1-全同粒子系的量子态的描述" class="headerlink" title="3.1 全同粒子系的量子态的描述"></a>3.1 全同粒子系的量子态的描述</h2><h3 id="3-1-1粒子数表象"><a href="#3-1-1粒子数表象" class="headerlink" title="3.1.1粒子数表象"></a>3.1.1粒子数表象</h3><p><font color = "red" face="黑体">Fermi的波函数</font>:</p><script type="math/tex; mode=display">\begin{aligned}\psi_{\alpha \beta \gamma \cdots}^{A}\left(q_{1}, \cdots, q_{N}\right) &=\frac{1}{\sqrt{N !}}\left|\begin{array}{c}\varphi_{\alpha}\left(q_{1}\right)& \cdots& \varphi_{\alpha}\left(q_{N}\right) \\\varphi_{\beta}\left(q_{1}\right) &\cdots &\varphi_{\beta}\left(q_{N}\right) \\\varphi_{\gamma}\left(q_{1}\right)&\cdots &\varphi_{\gamma}\left(q_{N}\right) \\\vdots & &\vdots \end{array}\right| \\&=\frac{1}{\sqrt{N !}} \sum_{P} \delta_{P} P\left[\varphi_{\alpha}\left(q_{1}\right) \varphi_{\beta}\left(q_{2}\right) \varphi_{\gamma}\left(q_{3}\right) \cdots\right]\end{aligned}</script><p><font color = "red" face="黑体">Bose子的波函数</font>:</p><script type="math/tex; mode=display">\psi_{n_{1} \cdots n_{N}}^{S}\left(q_{1}, \cdots, q_{N}\right)=\sqrt{\frac{\prod_{i} n_{i} !}{N !}} \sum_{P} P[\underbrace{\varphi_{k_{1}}\left(q_{1}\right) \cdots }_{n_{1}}\cdots \underbrace{\cdots \varphi_{k_{N}}\left(q_{N}\right)}_{n_N} ]</script><p><font color = "red" face="黑体">Fock表象</font>:<br>也即粒子填布数表象(occupation particle number representation)</p><script type="math/tex; mode=display">|n_1n_2\cdots n_N \rangle</script><h3 id="3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><a href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述" class="headerlink" title="3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述"></a>3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</h3><h2 id="3-5-Hartree-Fock-自洽场，独立粒子模型"><a href="#3-5-Hartree-Fock-自洽场，独立粒子模型" class="headerlink" title="3.5 Hartree-Fock 自洽场，独立粒子模型"></a>3.5 Hartree-Fock 自洽场，独立粒子模型</h2>]]></content>
       
       
       <categories>

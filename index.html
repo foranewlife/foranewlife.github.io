@@ -149,6 +149,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ch">
+    <link itemprop="mainEntityOfPage" href="https://foranewlife.github.io/2020/10/06/OF-DFT%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cys">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cys'blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/06/OF-DFT%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">OF-DFT笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-06 14:19:41 / Modified: 16:56:37" itemprop="dateCreated datePublished" datetime="2020-10-06T14:19:41+08:00">2020-10-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.zhihu.com/question/29462902" target="_blank" rel="noopener">理解Hartree-Fork</a></p>
+<h1 id="Hartree-Forks近似"><a href="#Hartree-Forks近似" class="headerlink" title="Hartree-Forks近似"></a>Hartree-Forks近似</h1><script type="math/tex; mode=display">
+E_{\mathrm{HF}}=\sum_{i=1}^{N} H_{i}+\frac{1}{2}\sum_{i, j=1}^{N}\left( J_{ij}-K_{ij}\right) \tag{1.1}</script><p>其中</p>
+<script type="math/tex; mode=display">
+\quad H_{i}=\int \psi_{i}^{*}(\mathbf{x})\left[-\frac{1}{2} \nabla^{2}+v(\mathbf{x})\right] \psi_{i}(\mathbf{x}) d \mathbf{x}</script><p>Coulomb integrals:</p>
+<script type="math/tex; mode=display">
+J_{i j}=\iint \psi_{i}\left(\mathbf{x}_{1}\right) \psi_{i}^{*}\left(\mathbf{x}_{1}\right) \frac{1}{r_{12}} \psi_{j}^{*}\left(\mathbf{x}_{2}\right) \psi_{j}\left(\mathbf{x}_{2}\right) d \mathbf{x}_{1} d \mathbf{x}_{2}</script><p>Exchange integrals:</p>
+<script type="math/tex; mode=display">
+K_{i j}=\iint \psi_{i}^{*}\left(\mathbf{x}_{1}\right) \psi_{j}\left(\mathbf{x}_{1}\right) \frac{1}{r_{12}} \psi_{i}\left(\mathbf{x}_{2}\right) \psi_{j}^{*}\left(\mathbf{x}_{2}\right) d \mathbf{x}_{1} d \mathbf{x}_{2}</script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ch">
     <link itemprop="mainEntityOfPage" href="https://foranewlife.github.io/2020/09/29/%E9%AB%98%E9%87%8F%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -172,10 +247,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-09-29 08:43:56 / Modified: 22:00:09" itemprop="dateCreated datePublished" datetime="2020-09-29T08:43:56+08:00">2020-09-29</time>
+              <time title="Created: 2020-09-29 08:43:56" itemprop="dateCreated datePublished" datetime="2020-09-29T08:43:56+08:00">2020-09-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-30 19:38:18" itemprop="dateModified" datetime="2020-09-30T19:38:18+08:00">2020-09-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -211,7 +292,7 @@
 <script type="math/tex; mode=display">
 \psi_{n_{1} \cdots n_{N}}^{S}\left(q_{1}, \cdots, q_{N}\right)=\sqrt{\frac{\prod_{i} n_{i} !}{N !}} \sum_{P} P[\underbrace{\varphi_{k_{1}}\left(q_{1}\right) \cdots }_{n_{1}}\cdots \underbrace{\cdots \varphi_{k_{N}}\left(q_{N}\right)}_{n_N} ]</script><p><font color = "red" face="黑体">Fock表象</font>:<br>也即粒子填布数表象(occupation particle number representation)</p>
 <script type="math/tex; mode=display">
-|n_1n_2\cdots n_N \rangle</script><h3 id="3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><a href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述" class="headerlink" title="3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述"></a>3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</h3>
+|n_1n_2\cdots n_N \rangle</script><h3 id="3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述"><a href="#3-1-2产生算符和湮没算符，全同Bose子体系的量子态描述" class="headerlink" title="3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述"></a>3.1.2产生算符和湮没算符，全同Bose子体系的量子态描述</h3><h2 id="3-5-Hartree-Fock-自洽场，独立粒子模型"><a href="#3-5-Hartree-Fock-自洽场，独立粒子模型" class="headerlink" title="3.5 Hartree-Fock 自洽场，独立粒子模型"></a>3.5 Hartree-Fock 自洽场，独立粒子模型</h2>
       
     </div>
 
@@ -552,7 +633,7 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -565,7 +646,7 @@ P_n = |n\rangle \langle n|</script><p><font color = "red" face="黑体">密度�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
