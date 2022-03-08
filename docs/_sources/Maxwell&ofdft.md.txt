@@ -4,7 +4,7 @@
 
 ​       
 
-**Pauli potential term** $v_{\mathrm{P}}[n](\mathbf{r}, t)$, required to compensate for the neglect of the pauli exclusion principle.
+**Pauli potential term** $v_{\mathrm{P}}[n](\vec r , t)$, required to compensate for the neglect of the pauli exclusion principle.
 
 ## Time-denpendent Schrodinger-like equation
 
@@ -19,12 +19,12 @@ $$
 - **Time-dependent effective potential**:
 
 $$
-v_B (\vec r ,t) = v_P (\vec r ,t) + v_S (\vec{r},t) \label{effective potential}
+v_B (\vec r ,t) = v_P (\vec r ,t) + v_S (\vec r ,t) \label{effective potential}
 $$
 - **Pauli kinetic energy** :
 
 $$
-v_{\mathrm{P}}[n](\mathbf{r}) = \frac{\delta T_p[n]}{\delta n(r)}
+v_{\mathrm{P}}[n](\vec r ) = \frac{\delta T_p[n]}{\delta n(r)}
 $$
 where $T_p[n] = T_s[n]-T_s^{vW}[n]$
 
@@ -54,7 +54,7 @@ $$
 	- the zero-force theorem
 
 		$$
-		\int d\mathbf r n(\vec r , t)\nabla v_p(\vec r,t) = 0
+		\int d\vec r n(\vec r , t)\nabla v_p(\vec r,t) = 0
 		$$
 
 3. 
@@ -75,6 +75,6 @@ $$
 	and 
 	
 	$$
-	\frac{d T_{\mathrm{P}}(t)}{d t}=\int d \mathbf{r} \frac{\partial n(\mathbf{r}, t)}{\partial t} v_{\mathrm{P}}(\mathbf{r}, t)
+	\frac{d T_{\mathrm{P}}(t)}{d t}=\int d \vec r  \frac{\partial n(\vec r , t)}{\partial t} v_{\mathrm{P}}(\vec r , t)
 	$$
 	

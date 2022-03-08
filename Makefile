@@ -19,7 +19,7 @@ help:
 clean:
 	rm -rf docs
 %: Makefile
-	rm -rf docs
+	rm -rf docs*
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) 
 	mv html docs
 	touch ./docs/.nojekyll

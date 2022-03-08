@@ -13,9 +13,11 @@
 ### 安装Sphinx
 
 ```bash
-pip install sphinx myst-parser sphinx-book-theme
+pip install sphinx myst-parser sphinx-book-theme sphinxcontrib-mermaid
+# or
+pip install -r requirements.txt
 #option
-pip install sphinx-math-dollar
+# pip install sphinx-math-dollar
 # pip install -U sphinx-mathjax-offline
 ```
 

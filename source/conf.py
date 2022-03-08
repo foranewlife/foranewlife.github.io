@@ -33,7 +33,7 @@ release = '0.0.0'
 extensions = ['myst_parser', 'sphinxcontrib.mermaid', 'sphinx.ext.mathjax']
 html_js_files = [
    'js/mermaid.min.js',
-   'js/personal.js',
+   #'js/personal.js',
 ]
 mermaid_version = ""
 
@@ -52,13 +52,14 @@ language = 'ch'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-mathjax_config = {
-    # 'tex': {'equation Numbers':{"autoNumber": "AMS"}},
+mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+mathjax3_config = {
+    'tex': {'tags': 'all'},
     'jax': ['input/TeX', 'output/HTML-CSS'],
 }
 myst_dmath_double_inline = True
-# myst_enable_extensions = ["amsmath"]
-myst_amsmath_enable = True
+myst_enable_extensions = ["amsmath","dollarmath"]
+# myst_amsmath_enable = True
 
 
 # -- Options for HTML output -------------------------------------------------
