@@ -2,7 +2,12 @@
 
 ![1](_static/Maxwell&ofdft.assets/1.png)
 
-​       
+|                     | Interacting system               | KS system                                             | Noninteracting boson system     |
+| ------------------- | -------------------------------- | ----------------------------------------------------- | ------------------------------- |
+| Density             | n($\vec r,t$)                    | n($\vec r,t$)                                         | n($\vec r,t$)                   |
+| Wave function       | $\Psi(\vec r_1,...,\vec r_N,t )$ | $\frac{1}{\sqrt{N!}}det[\{\phi_{s,l}(\vec r_l ,t)\}]$ | $\prod^n_l \phi_B(\vec r_l ,t)$ |
+| Effective potential | $v(\vec r,t)$                    |                                                       |                                 |
+| Hamiltonian         |                                  |                                                       |                                 |
 
 **Pauli potential term** $v_{\mathrm{P}}[n](\vec r , t)$, required to compensate for the neglect of the pauli exclusion principle.
 
@@ -41,7 +46,7 @@ $$
 	v_S \equiv v_S[n_0,\Psi_0,\Phi_S^0](\vec r) \\
 	v_B \equiv v_B[n_0,\Psi_0,\Phi_B^0](\vec r) \\
 	v_P \equiv v_P[n_0,\Phi_S^0,\Phi_B^0](\vec r) 
-	$$
+$$
 
 2. *The zero-force throrem*
 
@@ -57,10 +62,9 @@ $$
 		\int d\vec r n(\vec r , t)\nabla v_p(\vec r,t) = 0
 		$$
 
-3. 
+3. *The one- or two-electron limit*
 
 4. *The relationship between $T_p\ and\ V_p$*
-
 	$$
 	E(t) = T_B(t) + T_P(t) + E_(H) + E_XC(t) + \int d \vec r\ v(\vec r,t)n(\vec r,t),  \\
 	\text{where}
@@ -68,13 +72,14 @@ $$
 	  & T_B(t)=-\sqrt{n(\vec r,t)} \frac{\nabla^2}{2} \sqrt{n(\vec r,t)}  \\
 	  & T_P(t)=T_S(t)-T_B(t) \\
 	  & E_H(t)=\frac{1}{2}\int \ d\vec r \ \int d \vec r' \frac{n(\vec r,t)n(\vec r',t)}{|\vec r -\vec r'|} \\
-	  & E_XC(t)=T(t)-T_S(t)+W(t)-EH(t) \\
+	  & E_{XC}(t)=T(t)-T_S(t)+W(t)-EH(t) \\
 	\end{cases}
 	$$
-
+	
 	and 
 	
 	$$
 	\frac{d T_{\mathrm{P}}(t)}{d t}=\int d \vec r  \frac{\partial n(\vec r , t)}{\partial t} v_{\mathrm{P}}(\vec r , t)
 	$$
-	
+
+5. *Nonadiabaticity and causality*

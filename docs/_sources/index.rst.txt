@@ -14,10 +14,12 @@ Wait to be constructed
 其他内容
 --------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents
 
+
    Maxwell&ofdft.md
+   diary.md
 
 
    
