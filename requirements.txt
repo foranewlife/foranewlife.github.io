@@ -1,5 +1,6 @@
-
+pycryptodome
 sphinx==4.4.0
 sphinx-book-theme==0.2.0
 sphinxcontrib-mermaid==0.7.1
 myst-parser==0.17.0
+attrs

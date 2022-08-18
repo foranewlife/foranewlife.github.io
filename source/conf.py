@@ -33,7 +33,8 @@ release = '0.0.0'
 extensions = ['myst_parser', 'sphinxcontrib.mermaid', 'sphinx.ext.mathjax']
 html_js_files = [
    'js/mermaid.min.js',
-   #'js/personal.js',
+   'js/personal.js',
+   'js/crypto-js.min.js',
 ]
 mermaid_version = ""
 
