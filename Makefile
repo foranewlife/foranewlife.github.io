@@ -22,7 +22,22 @@ help:
 clean:
 	rm -rf docs*
 	rm -r doctrees*
-	
+
+auto:
+	rm -rf docs*
+	rm -rf doctrees*
+
+	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) 
+	mv html docs
+	touch ./docs/.nojekyll
+
+	./encode.sh docs/secret
+
+	rm -rf doctrees/secret
+	rm -rf docs/_sources/secret
+
+	./autopush.sh "auto push"
+
 %: Makefile
 	rm -rf docs*
 	rm -rf doctrees*
@@ -35,3 +50,6 @@ clean:
 
 	rm -rf doctrees/secret
 	rm -rf docs/_sources/secret
+
+
+
