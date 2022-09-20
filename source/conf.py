@@ -74,3 +74,38 @@ html_theme = 'sphinx_book_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+latex_elements = {
+# The paper size ('letterpaper' or 'a4paper').
+#'papersize': 'letterpaper',
+
+# The font size ('10pt', '11pt' or '12pt').
+#'pointsize': '10pt',
+
+# Additional stuff for the LaTeX preamble.
+#'preamble': '',
+
+# Latex figure (float) alignment
+#'figure_align': 'htbp',
+'preamble' : r'''
+ % \usepackage[UTF8,fontset=windows]{ctex} % Chinese
+ % \hypersetup{bookmarks,pdfstartview=FitH}
+
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+% \setCJKmainfont[BoldFont=STZhongsong, ItalicFont=STKaiti]{STSong}
+% \setCJKsansfont[BoldFont=STHeiti]{STXihei}
+% \setCJKmonofont[Scale=0.9]{STFangsong}
+% \setCJKfamilyfont{sf}{STXihei}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+'''
+#'preamble' : r'''
+#  \usepackage[UTF8,fontset=windows]{ctex} % Chinese
+#%\usepackage[UTF8]{ctex} % xelatex 下兼容mac系统
+#  \hypersetup{bookmarks,pdfstartview=FitH}
+#        ''',
+}

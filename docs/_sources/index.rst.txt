@@ -7,12 +7,7 @@ This is my personal page
 ========================================
 
 Wait to be constructed
--------------------------
 
-
-
-其他内容
---------
 .. toctree::
    :maxdepth: 1
    :caption: Contents
@@ -21,7 +16,6 @@ Wait to be constructed
    Maxwell&ofdft.md
    secret/diary.md
    dft.md
-
 
 
 .. Indices and tables

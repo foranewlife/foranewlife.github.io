@@ -38,7 +38,7 @@ auto:
 
 	./autopush.sh "auto push"
 
-%: Makefile
+html: Makefile
 	rm -rf docs*
 	rm -rf doctrees*
 
@@ -52,4 +52,5 @@ auto:
 	rm -rf docs/_sources/secret
 
 
-
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
