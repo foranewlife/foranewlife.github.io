@@ -23,13 +23,13 @@ repository               : "foranewlife/foranewlife.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "ForANewLife"
+  name             : "Yongshuo Chen"
   pronouns         : # example: "she/her"  
-  bio              : "计算生物学与密度泛函理论研究者"
+  bio              : "Yongshuo‘s research notes"
   location         : "China"
-  employer         : "研究院"
+  # employer         : "研究院"
   uri              : # URL
-  email            : "your-email@example.com" 
+  email            : "lanse627@qq.com" 
 
   # Academic websites
   academia         : # URL
@@ -53,7 +53,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -76,7 +76,7 @@ author:
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
-  zhihu            : # Username
+  zhihu            : "chen-yong-shuo-38"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
@@ -121,7 +121,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true     # change to true to hide the RSS feed in the footer
   path                   : # blank (default) uses feed.xml
 
 
