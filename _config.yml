@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "zh-CN"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "学术笔记 - 计算生物与密度泛函理论"
+title                    : "Yongshuo Chen's Blog"
 title_separator          : "-"
-name                     : &name "ForANewLife"
-description              : &description "计算生物学和密度泛函理论研究笔记"
+name                     : &name "Yongshuo Chen"
+description              : &description "Yongshuo's research notes and personal blog"
 url                      : https://foranewlife.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "foranewlife/foranewlife.github.io"
