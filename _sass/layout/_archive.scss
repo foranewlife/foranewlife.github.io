@@ -296,11 +296,29 @@
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     display: block;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 
     &:hover {
       background-color: #bbdefb;
       color: #0d47a1;
+    }
+
+    &.current-page {
+      background-color: #1976d2;
+      color: #ffffff;
+      font-size: 1.1em;
+      font-weight: 600;
+      transform: scale(1.05);
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+    }
+
+    &.active {
+      background-color: #1976d2;
+      color: #ffffff;
+      font-size: 1.1em;
+      font-weight: 600;
+      transform: scale(1.05);
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
     }
   }
 }
