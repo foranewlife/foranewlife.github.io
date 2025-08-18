@@ -1,63 +1,81 @@
 ---
 permalink: /
-title: "计算生物学与密度泛函理论研究笔记"
+title: "泳烁的个人网站"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-欢迎来到我的学术网站！这里记录了我在**计算生物学**和**密度泛函理论**研究中的学习笔记、技术分享和学术心得。
-
-## 研究方向
-
-### 计算生物学
-- 蛋白质结构预测与功能分析
-- 分子动力学模拟方法
-- 药物设计与虚拟筛选
-- 生物分子相互作用研究
-
-### 密度泛函理论
-- 第一性原理计算方法
-- 交换相关泛函开发
-- 电子结构与光谱性质
-- 催化反应机理研究
-
-## 技能与工具
-
-### 计算软件
-- **量子化学**：VASP, Gaussian, ORCA, CP2K
-- **分子动力学**：GROMACS, AMBER, LAMMPS
-- **可视化**：VMD, PyMOL, ChimeraX
-
-### 编程技能
-- **Python**：NumPy, SciPy, pandas, matplotlib, ASE
-- **其他语言**：MATLAB, Shell scripting, C++
-- **机器学习**：scikit-learn, TensorFlow, PyTorch
-
-## 网站功能
-
-本网站支持以下学术功能：
-- **数学公式**：LaTeX格式的数学公式渲染
-- **文献管理**：自动生成的发表论文列表
-- **演讲记录**：会议报告和学术演讲档案
-- **教学资源**：课程材料和教学笔记
-- **研究博客**：技术分享和学习心得
-
-## 数学公式示例
-
-这个网站支持完整的LaTeX数学公式：
-
-薛定谔方程：
-$$\hat{H}\psi = E\psi$$
-
-DFT的Kohn-Sham方程：
-$$\left[-\frac{1}{2}\nabla^2 + v_{ext}(\mathbf{r}) + v_H(\mathbf{r}) + v_{xc}(\mathbf{r})\right]\psi_i(\mathbf{r}) = \epsilon_i\psi_i(\mathbf{r})$$
-
-## 联系方式
+欢迎来到我的个人网站！这里记录了我在研究中的学习笔记、技术分享和学术心得。
 
 如有学术交流或合作意向，欢迎通过侧边栏的联系方式与我交流。
 
 ---
 
-*本网站基于 [Academic Pages](https://github.com/academicpages/academicpages.github.io) 模板构建，托管在GitHub Pages上。*
+## 文章总览
+### · [分类](/categories/)
+
+{% comment %}
+创建一个包含数量和名称的数组，用于排序
+格式：[数量(补零到3位), 名称]，这样可以按字符串排序来实现按数量排序
+{% endcomment %}
+{% assign category_list = '' | split: '' %}
+{% for category in site.categories %}
+  {% assign count_padded = category[1].size | prepend: '000' | slice: -3, 3 %}
+  {% assign item = count_padded | append: '|' | append: category[0] %}
+  {% assign category_list = category_list | push: item %}
+{% endfor %}
+{% assign category_list = category_list | sort | reverse %}
+
+<div class="category-stats">
+  {% for item in category_list %}
+    {% assign parts = item | split: '|' %}
+    {% assign count = parts[0] | plus: 0 %}
+    {% assign name = parts[1] %}
+    <span class="category-item">
+      <a href="/categories/#{{ name | slugify }}">{{ name }}</a>
+      <span class="count">({{ count }})</span>
+    </span>
+    {% unless forloop.last %} • {% endunless %}
+  {% endfor %}
+</div>
+
+### · [标签](/tags/)
+
+{% comment %}
+同样的方法处理标签
+{% endcomment %}
+{% assign tag_list = '' | split: '' %}
+{% for tag in site.tags %}
+  {% assign count_padded = tag[1].size | prepend: '000' | slice: -3, 3 %}
+  {% assign item = count_padded | append: '|' | append: tag[0] %}
+  {% assign tag_list = tag_list | push: item %}
+{% endfor %}
+{% assign tag_list = tag_list | sort | reverse %}
+
+<div class="tag-stats">
+  {% for item in tag_list %}
+    {% assign parts = item | split: '|' %}
+    {% assign count = parts[0] | plus: 0 %}
+    {% assign name = parts[1] %}
+    <span class="tag-item">
+      <a href="/tags/#{{ name | slugify }}">{{ name }}</a>
+      <span class="count">({{ count }})</span>
+    </span>
+    {% unless forloop.last %} • {% endunless %}
+  {% endfor %}
+</div>
+---
+{% if site.posts.size > 0 %}
+<div class="page__latest-posts">
+  <h2 class="page__latest-title">最新文章</h2>
+  <div class="grid__wrapper">
+    {% for post in site.posts limit:4 %}
+      {% unless post.tags contains "草稿" %}
+        {% include archive-single.html type="grid" %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
