@@ -348,10 +348,10 @@
 }
 
 .toc-nav {
-  background: #e3f2fd;
+  background: var(--global-bg-color);
   padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #2196f3;
+  border: none;
+  border-radius: 0;
   max-height: 70vh;
   overflow-y: auto;
 
@@ -359,11 +359,12 @@
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.2em;
-    color: #1976d2;
+    color: var(--global-text-color);
     position: sticky;
     top: 0;
-    background: #e3f2fd;
+    background: var(--global-bg-color);
     padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--global-border-color);
     z-index: 1;
   }
 
@@ -465,6 +466,44 @@
   }
 }
 
+/*
+   Mobile TOC toggle button
+   ========================================================================== */
+
+.mobile-toc-toggle {
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--global-bg-color);
+  color: #1976d2;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--global-bg-color);
+    color: #1565c0;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  i {
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
   .content-with-sidebar {
     flex-direction: column;
@@ -476,8 +515,65 @@
   }
   
   .toc-sidebar {
-    position: static;
-    flex: none;
-    margin-top: 1rem;
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 80vw;
+    max-width: 350px;
+    height: calc(100vh - 70px);
+    background: var(--global-bg-color);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    
+    &.show {
+      display: block;
+      right: 0;
+    }
+    
+    &.show::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--global-bg-color);
+      opacity: 0.8;
+      z-index: -1;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .toc-nav {
+      padding: 1rem;
+      max-height: none;
+      height: 100%;
+      overflow: visible;
+      border: none;
+      border-radius: 0;
+      background: var(--global-bg-color);
+      margin: 0;
+      
+      h3 {
+        position: sticky;
+        top: 0;
+        background: var(--global-bg-color);
+        margin: 0 0 1rem 0;
+        padding: 0 0 1rem 0;
+        border-bottom: 1px solid var(--global-border-color);
+        z-index: 2;
+      }
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .mobile-toc-toggle {
+    display: block;
   }
 }
