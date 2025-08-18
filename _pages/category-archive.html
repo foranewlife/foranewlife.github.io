@@ -8,10 +8,32 @@ author_profile: true
 {% include base_path %}
 {% include group-by-array collection=site.posts field="categories" %}
 
-{% for category in group_names %}
-  {% assign posts = group_items[forloop.index0] %}
-  <h2 id="{{ category | slugify }}" class="archive__subtitle">{{ category }}</h2>
-  {% for post in posts %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endfor %}
+<div class="content-with-sidebar">
+  <div class="main-content">
+    {% for category in group_names %}
+      {% assign posts = group_items[forloop.index0] %}
+      <h2 id="{{ category | slugify }}" class="archive__subtitle">{{ category }}</h2>
+      {% for post in posts %}
+        {% include archive-single.html %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+  
+  <div class="archive-sidebar">
+    <div class="category-nav">
+      <h3>分类目录</h3>
+      <ul>
+        <li><a href="/categories/">Categories</a></li>
+        <li><a href="/tags/">Tags</a></li>
+        <li><a href="/collection-archive/">Collections</a></li>
+      </ul>
+      
+      <h3>所有分类</h3>
+      <ul>
+        {% for category in group_names %}
+        <li><a href="#{{ category | slugify }}">{{ category }} ({{ group_items[forloop.index0].size }})</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -8,17 +8,42 @@ author_profile: true
 {% include base_path %}
 {% capture written_label %}'None'{% endcapture %}
 
-{% for collection in site.collections %}
-  {% unless collection.output == false or collection.label == "posts" %}
-    {% capture label %}{{ collection.label }}{% endcapture %}
-    {% if label != written_label %}
-      <h2 id="{{ label | slugify }}" class="archive__subtitle">{{ label }}</h2>
-      {% capture written_label %}{{ label }}{% endcapture %}
-    {% endif %}
-  {% endunless %}
-  {% for post in collection.docs %}
-    {% unless collection.output == false or collection.label == "posts" %}
-      {% include archive-single.html %}
-    {% endunless %}
-  {% endfor %}
-{% endfor %}
+<div class="content-with-sidebar">
+  <div class="main-content">
+    {% for collection in site.collections %}
+      {% unless collection.output == false or collection.label == "posts" %}
+        {% capture label %}{{ collection.label }}{% endcapture %}
+        {% if label != written_label %}
+          <h2 id="{{ label | slugify }}" class="archive__subtitle">{{ label }}</h2>
+          {% capture written_label %}{{ label }}{% endcapture %}
+        {% endif %}
+      {% endunless %}
+      {% for post in collection.docs %}
+        {% unless collection.output == false or collection.label == "posts" %}
+          {% include archive-single.html %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+  
+  <div class="archive-sidebar">
+    <div class="category-nav">
+      <h3>分类目录</h3>
+      <ul>
+        <li><a href="/categories/">Categories</a></li>
+        <li><a href="/tags/">Tags</a></li>
+        <li><a href="/collection-archive/">Collections</a></li>
+      </ul>
+      
+      <h3>所有集合</h3>
+      <ul>
+        {% for collection in site.collections %}
+          {% unless collection.output == false or collection.label == "posts" %}
+            {% assign collection_count = collection.docs | size %}
+            <li><a href="#{{ collection.label | slugify }}">{{ collection.label }} ({{ collection_count }})</a></li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
