@@ -19,7 +19,8 @@ layout: default
     {% include sidebar.html %}
   {% endunless %}
 
-  <article class="{% if page.url contains '/posts' %} .page__full-width {% else %} page {% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
+  <div class="{% if page.url contains '/posts' %} content-with-sidebar {% else %}  main-content  {% endif %}">
+    <article class="{% if page.url contains '/posts' %} main-content {% else %} page {% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
@@ -97,7 +98,6 @@ layout: default
     {% if site.comments.provider and page.comments %}
       {% include comments.html %}
     {% endif %}
-  </article>
 
   {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
@@ -114,6 +114,20 @@ layout: default
       </div>
     </div>
   {% endif %}
+    </article>
+    
+    <!-- 文章目录侧边栏 -->
+    {% if page.url contains '/posts' %}
+    <div class="toc-sidebar">
+      <div class="toc-nav">
+        <h3>文章目录</h3>
+        <div id="toc-content">
+          <!-- 目录内容将由JavaScript动态生成 -->
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
 </div>
 
 <!-- 回到顶部按钮 -->
@@ -184,4 +198,254 @@ document.addEventListener('DOMContentLoaded', function() {
   // 点击按钮回到顶部
   backToTopBtn.addEventListener('click', scrollToTop);
 });
+
+// 文章目录功能
+if (document.querySelector('.toc-sidebar')) {
+  // 生成目录
+  function generateTOC() {
+    const content = document.querySelector('.page__content');
+    const tocContent = document.getElementById('toc-content');
+    
+    if (!content || !tocContent) return;
+    
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    if (headings.length === 0) {
+      document.querySelector('.toc-sidebar').style.display = 'none';
+      return;
+    }
+    
+    // 构建层级结构
+    const tocTree = buildTOCTree(headings);
+    tocTreeGlobal = tocTree; // 保存全局引用
+    const tocHTML = generateTOCHTML(tocTree);
+    
+    tocContent.innerHTML = tocHTML;
+  }
+  
+  // 构建TOC树结构
+  function buildTOCTree(headings) {
+    const tree = [];
+    const stack = [];
+    
+    headings.forEach((heading, index) => {
+      // 为标题添加ID
+      if (!heading.id) {
+        const text = heading.textContent.trim();
+        heading.id = `heading-${index}-${text.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '').substring(0, 20)}`;
+      }
+      
+      const level = parseInt(heading.tagName.substring(1));
+      const text = heading.textContent.trim();
+      
+      const node = {
+        id: heading.id,
+        text: text,
+        level: level,
+        children: []
+      };
+      
+      // 找到合适的父节点
+      while (stack.length > 0 && stack[stack.length - 1].level >= level) {
+        stack.pop();
+      }
+      
+      if (stack.length === 0) {
+        tree.push(node);
+      } else {
+        stack[stack.length - 1].children.push(node);
+      }
+      
+      stack.push(node);
+    });
+    
+    return tree;
+  }
+  
+  // 用于存储TOC树结构，供父级高亮使用
+  let tocTreeGlobal = null;
+  
+  // 查找节点的所有父级ID
+  function findParentIds(nodeId, tree, parents = []) {
+    for (let node of tree) {
+      if (node.id === nodeId) {
+        return parents;
+      }
+      if (node.children && node.children.length > 0) {
+        const result = findParentIds(nodeId, node.children, [...parents, node.id]);
+        if (result !== null) {
+          return result;
+        }
+      }
+    }
+    return null;
+  }
+  
+  // 高亮父级链接
+  function highlightParents(currentId) {
+    if (!tocTreeGlobal) return;
+    
+    const parentIds = findParentIds(currentId, tocTreeGlobal);
+    if (parentIds) {
+      parentIds.forEach(parentId => {
+        const parentLink = document.querySelector(`.toc-link[href="#${parentId}"]`);
+        if (parentLink) {
+          parentLink.classList.add('parent-active');
+        }
+      });
+    }
+  }
+  
+  // 将激活的目录项滚动到可视区域
+  function scrollTocToActiveItem(activeLink) {
+    const tocNav = document.querySelector('.toc-nav');
+    if (!tocNav || !activeLink) return;
+    
+    const tocNavRect = tocNav.getBoundingClientRect();
+    const activeLinkRect = activeLink.getBoundingClientRect();
+    
+    // 计算相对于 toc-nav 容器的位置
+    const relativeTop = activeLinkRect.top - tocNavRect.top + tocNav.scrollTop;
+    const relativeBottom = activeLinkRect.bottom - tocNavRect.top + tocNav.scrollTop;
+    
+    // 检查是否需要滚动
+    const containerHeight = tocNav.clientHeight;
+    const scrollTop = tocNav.scrollTop;
+    const visibleTop = scrollTop;
+    const visibleBottom = scrollTop + containerHeight;
+    
+    // 如果激活项在可视区域上方
+    if (relativeTop < visibleTop) {
+      tocNav.scrollTo({
+        top: relativeTop - 20, // 添加一些边距
+        behavior: 'smooth'
+      });
+    }
+    // 如果激活项在可视区域下方
+    else if (relativeBottom > visibleBottom) {
+      tocNav.scrollTo({
+        top: relativeBottom - containerHeight + 20, // 添加一些边距
+        behavior: 'smooth'
+      });
+    }
+  }
+  
+  // 生成TOC HTML
+  function generateTOCHTML(tree) {
+    if (!tree || tree.length === 0) return '';
+    
+    let html = '<ul class="toc-list">';
+    
+    tree.forEach(node => {
+      const hasChildren = node.children && node.children.length > 0;
+      
+      html += `<li class="toc-level-${node.level} ${hasChildren ? 'toc-has-children' : ''}">`;
+      
+      html += `<a href="#${node.id}" class="toc-link">`;
+      
+      if (hasChildren) {
+        html += `<span class="toc-toggle" data-target="toc-${node.id}">
+          <i class="fa fa-chevron-down"></i>
+        </span>`;
+      }
+      
+      html += `${node.text}</a>`;
+      
+      if (hasChildren) {
+        html += `<div class="toc-children" id="toc-${node.id}">
+          ${generateTOCHTML(node.children)}
+        </div>`;
+      }
+      
+      html += '</li>';
+    });
+    
+    html += '</ul>';
+    return html;
+  }
+  
+  // 滚动监听和高亮
+  function updateTOCHighlight() {
+    const headings = document.querySelectorAll('.page__content h1[id], .page__content h2[id], .page__content h3[id], .page__content h4[id], .page__content h5[id], .page__content h6[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    
+    let currentHeading = null;
+    const scrollTop = window.pageYOffset + 100;
+    
+    // 找到当前可见的标题
+    for (let i = headings.length - 1; i >= 0; i--) {
+      if (headings[i].offsetTop <= scrollTop) {
+        currentHeading = headings[i];
+        break;
+      }
+    }
+    
+    // 更新高亮
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      link.classList.remove('parent-active');
+    });
+    
+    if (currentHeading) {
+      const activeLink = document.querySelector(`.toc-link[href="#${currentHeading.id}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        // 高亮父级链接 - 使用简化的方法
+        highlightParents(currentHeading.id);
+        
+        // 滚动目录到可视区域
+        scrollTocToActiveItem(activeLink);
+      }
+    }
+  }
+  
+  // 处理折叠切换
+  function handleTOCToggle(e) {
+    if (e.target.closest('.toc-toggle')) {
+      e.preventDefault();
+      const toggle = e.target.closest('.toc-toggle');
+      const targetId = toggle.getAttribute('data-target');
+      const children = document.getElementById(targetId);
+      const icon = toggle.querySelector('i');
+      
+      if (children) {
+        children.classList.toggle('collapsed');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-right');
+      }
+    }
+  }
+  
+  // 平滑滚动到标题
+  function handleTOCClick(e) {
+    if (e.target.classList.contains('toc-link')) {
+      e.preventDefault();
+      const targetId = e.target.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // 立即更新高亮状态和目录滚动
+        setTimeout(() => {
+          updateTOCHighlight();
+        }, 100);
+      }
+    }
+  }
+  
+  // 初始化
+  generateTOC();
+  window.addEventListener('scroll', updateTOCHighlight, { passive: true });
+  
+  // 绑定点击事件（包括折叠和跳转）
+  const tocSidebar = document.querySelector('.toc-sidebar');
+  tocSidebar.addEventListener('click', handleTOCToggle);
+  tocSidebar.addEventListener('click', handleTOCClick);
+  
+  // 初始高亮
+  setTimeout(updateTOCHighlight, 100);
+}
 </script>

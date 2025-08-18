@@ -274,8 +274,9 @@
 .archive-sidebar {
   flex: 0 0 250px;
   position: sticky;
-  top: 20px;
+  top: 100px;
   height: fit-content;
+  max-height: calc(100vh - 120px);
 }
 
 .category-nav {
@@ -334,6 +335,136 @@
   }
 }
 
+/*
+   TOC sidebar for single posts
+   ========================================================================== */
+
+.toc-sidebar {
+  flex: 0 0 250px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+}
+
+.toc-nav {
+  background: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #2196f3;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+    color: #1976d2;
+    position: sticky;
+    top: 0;
+    background: #e3f2fd;
+    padding-bottom: 0.5rem;
+    z-index: 1;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.3rem;
+      
+      &.toc-has-children {
+        position: relative;
+      }
+    }
+
+    .toc-toggle {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+      color: #1976d2;
+      margin-right: 0.3rem;
+      text-align: center;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #bbdefb;
+      }
+      
+      i {
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .toc-children {
+      margin-left: 1rem;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      
+      &.collapsed {
+        max-height: 0;
+      }
+      
+      &:not(.collapsed) {
+        max-height: 1000px;
+      }
+    }
+
+    .toc-link {
+      color: #1565c0;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 0.9em;
+
+      &:hover {
+        background-color: #bbdefb;
+        color: #0d47a1;
+      }
+
+      &.active {
+        background-color: #1976d2;
+        color: #ffffff;
+        font-weight: 600;
+        transform: scale(1.02);
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+      }
+      
+      &.parent-active {
+        background-color: #bbdefb;
+        color: #0d47a1;
+        font-weight: 500;
+      }
+    }
+
+    // 根据层级调整样式
+    .toc-level-1 .toc-link {
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    .toc-level-3 .toc-link {
+      font-size: 0.85em;
+    }
+
+    .toc-level-4 .toc-link {
+      font-size: 0.8em;
+    }
+
+    .toc-level-5 .toc-link,
+    .toc-level-6 .toc-link {
+      font-size: 0.75em;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .content-with-sidebar {
     flex-direction: column;
@@ -342,5 +473,11 @@
   .archive-sidebar {
     position: static;
     flex: none;
+  }
+  
+  .toc-sidebar {
+    position: static;
+    flex: none;
+    margin-top: 1rem;
   }
 }
