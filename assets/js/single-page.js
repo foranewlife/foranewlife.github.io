@@ -253,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleTOCClick(e) {
       if (e.target.classList.contains('toc-link')) {
         e.preventDefault();
+        e.stopPropagation(); // 防止其他事件处理器处理此事件
         const targetId = e.target.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
@@ -266,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTOCHighlight();
           }, 100);
         }
+        return false; // 确保事件被完全阻止
       }
     }
     
@@ -330,12 +332,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileTOC();
     window.addEventListener('scroll', updateTOCHighlight, { passive: true });
     
-    // Bind click events (collapse and navigation)
-    const tocSidebar = document.querySelector('.toc-sidebar');
-    if (tocSidebar) {
-      tocSidebar.addEventListener('click', handleTOCToggle);
-      tocSidebar.addEventListener('click', handleTOCClick);
-    }
+    // Delay binding click events to ensure they're bound after main.min.js
+    setTimeout(() => {
+      const tocSidebar = document.querySelector('.toc-sidebar');
+      if (tocSidebar) {
+        tocSidebar.addEventListener('click', handleTOCToggle, true); // Use capture phase
+        tocSidebar.addEventListener('click', handleTOCClick, true);   // Use capture phase
+      }
+    }, 200);
     
     // Initial highlighting
     setTimeout(updateTOCHighlight, 100);
